@@ -9,16 +9,12 @@ function startCountdown(targetDate) {
       return;
     }
 
-    const totalSeconds = Math.floor(diff / 1000);
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
+    const s = Math.floor(diff / 1000);
 
-    document.getElementById("days").innerText = String(days).padStart(2, "0");
-    document.getElementById("hours").innerText = String(hours).padStart(2, "0");
-    document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+    days.innerText = Math.floor(s / 86400);
+    hours.innerText = Math.floor((s % 86400) / 3600);
+    minutes.innerText = Math.floor((s % 3600) / 60);
+    seconds.innerText = s % 60;
   }
 
   updateTimer();
