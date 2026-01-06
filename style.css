@@ -5,6 +5,8 @@ html {
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
   text-align: center;
 }
 
@@ -12,14 +14,12 @@ body {
 .hero {
   height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
 }
 
 .overlay {
@@ -30,17 +30,12 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 18%;
-  color: white;
 }
 
+/* TEXT */
 .couple-names {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(4rem, 9vw, 7rem);
-}
-
-.wedding-subtitle {
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
 }
 
 .bible-quote {
@@ -50,11 +45,11 @@ body {
   max-width: 700px;
 }
 
-/* PEOPLE */
+/* IMAGE SECTIONS */
 .people-image-container,
 .event-image-container {
-  position: relative;
   height: 100vh;
+  position: relative;
 }
 
 .people-image-container img,
@@ -62,29 +57,32 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.45);
 }
 
+/* NAME OVERLAY */
 .nameoverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.3);
-  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 25px;
+  gap: 24px;
 }
 
-/* EVENTS */
+.couple-card h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* EVENT DETAILS */
 .event-details {
   position: absolute;
-  width: 280px;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  padding: 22px;
+  width: 340px;
+  background: rgba(0,0,0,0.6);
+  padding: 28px;
   border-radius: 14px;
   text-align: left;
-  backdrop-filter: blur(6px);
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .top-left {
@@ -92,165 +90,108 @@ body {
   left: 40px;
 }
 
-.bottom-right {
-  bottom: 40px;
-  right: 40px;
+/* RESET MARGINS */
+.event-details h3,
+.event-details h4,
+.event-details .time,
+.event-details .venue {
+  margin: 0;
+}
+
+/* EVEN SPACING */
+.event-details h3,
+.event-details h4 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.event-details .time {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.event-details .venue {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+
+.event-details hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin: 18px 0;
 }
 
 /* MAP LINK */
 .map-link {
-  color: inherit;
+  display: block;
+  color: #fff;
   text-decoration: none;
 }
 
 .map-link::after {
   content: "📍 View on Map";
-  display: block;
-  font-size: 0.75rem;
-  margin-top: 6px;
+  font-size: 0.95rem;
+  opacity: 0.8;
 }
 
 /* COUNTDOWN */
 .countdown-only {
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 .countdown-grid {
   display: flex;
-  gap: 25px;
   justify-content: center;
+  gap: 30px;
 }
 
 .time-box span {
-  font-size: 8rem;
+  font-size: 6rem;
   font-family: 'Playfair Display', serif;
 }
-
-/* ================= MOBILE FIXES ================= */
 @media (max-width: 768px) {
-
-  /* HERO */
-  .overlay {
-    padding-top: 70%;
+  .overlay { 
+    padding-top: 70%; 
   }
 
-  .couple-names {
-    font-size: 3.2rem;
-    line-height: 1.05;
-    letter-spacing: 1px;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.35);
-  }
-
-  .wedding-subtitle {
-    font-size: 0.9rem;       /* MUCH smaller */
-    letter-spacing: 1px;
-    margin-top: 6px;
-  }
-
-  .bible-quote {
-    font-size: 1.05rem;      /* subtle, elegant */
-    line-height: 1.5;
-    margin-top: 14px;
-    padding: 0 18px;
-    opacity: 0.9;
-  }
-
-  .hero img {
-    object-position: center 20%;
-  }
-
-/* EVENT BOX – smaller & elegant */
+  /* Center event details on mobile */
   .event-details {
-    width: 130px;
-    padding: 12px 14px;
-    border-radius: 12px;
+    width: 90%;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
   }
 
-  .event-details h3 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-  }
-
-  .event-details p {
-    font-size: 0.75rem;
-    margin: 2px 0;
-  }
-
-  .event-details span {
-    font-size: 0.8rem;
+  .event-details h3,
+  .event-details h4 {
+    font-size: 1.8rem;
   }
 
   .event-details .time {
-    font-size: 0.7rem;
-    margin-top: 8px;
-    padding-top: 6px;
+    font-size: 1.2rem;
   }
 
-  /* Engagement – top left */
-  .top-left {
-    top: 16px;
-    left: 16px;
-    right: auto;
-    bottom: auto;
-    transform: none;
+  .event-details .venue {
+    font-size: 1.1rem;
   }
 
-  /* Wedding – bottom right */
-  .bottom-right {
-    bottom: 16px;
-    right: 16px;
-    left: auto;
-    top: auto;
-    transform: none;
-  }
-
-
-
-  /* COUNTDOWN */
+  /* Countdown responsive */
   .countdown-grid {
     flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .time-box {
-    width: 45%;
+    gap: 20px;
+    justify-content: center;
   }
 
   .time-box span {
-    font-size: 4rem;
+    font-size: 4rem; /* smaller to fit mobile */
   }
 
- .nameoverlay h2 {
-    font-size: 1.3rem;   /* balanced size */
-    line-height: 1.15;
-    margin-bottom: 2px;
+  .time-box label {
+    font-size: 0.7rem;
   }
-
-  .couple-card p {
-    font-size: 0.6rem;    /* parent lines */
-    line-height: 1.4;
-    opacity: 0.95;
-  }
-
-  .couple-card p:last-child {
-    font-size: 0.6rem;     /* house/location */
-    opacity: 0.8;
-  }
-
-  .divider {
-    font-size: 1.4rem;
-    margin: 4px 0;
-  }
-
- .invitation-text p {
-  font-size: 0.8rem;        /* elegant but subtle */
-  line-height: 1.6;
-  max-width: 320px;
-  opacity: 0.9;
-  padding: 0 16px;        /* equal left & right padding */
-  margin: 0 auto;         /* keep it centered */
-}
-
-
-
 }
